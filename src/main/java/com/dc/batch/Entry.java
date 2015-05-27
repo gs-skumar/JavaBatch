@@ -4,10 +4,12 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.JobParameters;
 import org.springframework.batch.core.launch.JobLauncher;
+import org.springframework.batch.core.launch.support.SimpleJobOperator;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Entry {
+	public static SimpleJobOperator simpleJobOperator;
 	public static void main(String[] args) {
 
 		String[] springConfig  = 
@@ -20,6 +22,7 @@ public class Entry {
 		
 		JobLauncher jobLauncher = (JobLauncher) context.getBean("jobLauncher");
 		Job job = (Job) context.getBean("UsageAggJob");
+		simpleJobOperator = (SimpleJobOperator)context.getBean("jobOperator");
 
 		try {
 

@@ -18,17 +18,17 @@ public class UsageDataMapper implements FieldSetMapper<UsageData> {
     public UsageData mapFieldSet(FieldSet fieldSet) throws BindException {
         UsageData usageData = new UsageData();
         try{
-            usageData.setAccountName(fieldSet.readString(0));
-            usageData.setDate(dateFormat.parse(fieldSet.readString(1)));
-            usageData.setAggType(fieldSet.readString(2));
-            usageData.setInstanceId(fieldSet.readString(3));
-            usageData.setInstanceName(fieldSet.readString(4));
-            usageData.setYtdLogin(fieldSet.readDouble(5));
-            usageData.setUniqueLogin(fieldSet.readDouble(6));
-            usageData.setTotalLogin(fieldSet.readDouble(7));
-            usageData.setAllLogin(fieldSet.readDouble(8));
+            usageData.setAccountName(fieldSet.readString("Account"));
+            usageData.setDate(dateFormat.parse(fieldSet.readString("Date")));
+            usageData.setAggType(fieldSet.readString("Name"));
+            usageData.setInstanceId(fieldSet.readString("Instance Id"));
+            usageData.setInstanceName(fieldSet.readString("Instance Name"));
+            usageData.setYtdLogin(fieldSet.readDouble("YTD Unique"));
+            usageData.setUniqueLogin(fieldSet.readDouble("Unique Logins"));
+            usageData.setTotalLogin(fieldSet.readDouble("Total Logins"));
+            usageData.setAllLogin(fieldSet.readDouble("All Logins"));
         }catch (ParseException e){
-            System.out.print("Exception "+e.getStackTrace());
+            System.out.print("Exception in mapper "+e.getStackTrace());
         }
         return usageData;
     }
