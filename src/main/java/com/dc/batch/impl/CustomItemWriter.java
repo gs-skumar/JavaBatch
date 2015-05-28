@@ -17,7 +17,6 @@ public class CustomItemWriter implements ItemWriter<UsageData> {
         System.out.println("Writing in a batch of  size " + list.size());
         for(String jobs : Entry.simpleJobOperator.getJobNames()){
             System.out.println(jobs);
-
         }
     }
 }

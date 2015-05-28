@@ -39,6 +39,7 @@
 				</property>
 			</bean>
 		</property>
+		<property name="linesToSkip" value="1"></property>
 
 	</bean>
 	<bean id ="CustomItemWriter" class="com.dc.batch.impl.CustomItemWriter"/>
