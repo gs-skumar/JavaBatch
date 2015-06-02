@@ -1,4 +1,4 @@
-# JavaBatch
+# Java Spring Batch Example
 Demo on how to use java Batch features using Spring implementation.
 
 ## Prerequesties
@@ -7,3 +7,4 @@ Demo on how to use java Batch features using Spring implementation.
 3. Eclipse or Intellij.
 4. Spring Batch 2.2.0.RELEASE.
 5. Maven 3.
+

@@ -22,9 +22,20 @@
 					</batch:skippable-exception-classes>
 				</batch:chunk>
 			</batch:tasklet>
+			<batch:next on="*" to="step3"/>
+			<batch:next on="FAILED" to="step2"/>
+		</batch:step>
+
+		<batch:step id="step2">
+			<batch:tasklet ref = "myTasklet"></batch:tasklet>
+		</batch:step>
+		<batch:step id="step3">
+			<batch:tasklet ref = "taskdone"></batch:tasklet>
 		</batch:step>
 	</batch:job>
 
+	<bean id ="taskdone" class ="com.dc.batch.impl.TaskDone"/>
+	<bean id="myTasklet" class="com.dc.batch.impl.MyTasklet" lazy-init="true"></bean>
 	<bean id="cvsFileItemReader" class="org.springframework.batch.item.file.FlatFileItemReader">
 
 		<property name="resource" value="classpath:cvs/input/UsageData.csv" />

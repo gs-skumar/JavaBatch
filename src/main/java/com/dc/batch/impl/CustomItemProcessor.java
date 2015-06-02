@@ -15,7 +15,7 @@ public class CustomItemProcessor implements ItemProcessor<UsageData, UsageData> 
 			//System.out.println("Processing batch " + item.getAccountName() +" "+item.getInstanceId().substring(1));
 		/*}catch (Exception e){
 			System.out.println("Exception ");
-			throw new Exception("Exeption occ while processing");
+			throw new Exception("Exception occ while processing");
 		}*/
 
 		return item;
