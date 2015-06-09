@@ -2,7 +2,8 @@ package com.dc.batch.impl;
 
 import com.dc.batch.Entry;
 import com.dc.batch.model.UsageData;
-import org.springframework.batch.core.launch.support.SimpleJobOperator;
+import org.springframework.batch.core.repository.JobRepository;
+import org.springframework.batch.core.repository.support.JobRepositoryFactoryBean;
 import org.springframework.batch.item.ExecutionContext;
 import org.springframework.batch.item.ItemStream;
 import org.springframework.batch.item.ItemStreamException;
@@ -16,6 +17,8 @@ import java.util.List;
  */
 public class CustomItemWriter implements ItemWriter<UsageData>,ItemStream {
 
+
+    public JobRepository jobRepository;
     public static int count;
     public static String batchCount;
     FlatFileItemWriter<UsageData> delegate;
@@ -31,7 +34,7 @@ public class CustomItemWriter implements ItemWriter<UsageData>,ItemStream {
     @Override
     public void open(ExecutionContext executionContext) throws ItemStreamException {
         System.out.println("Exceution context "+executionContext);
-       // delegate.open(executionContext);
+       System.out.println("jobrepository "+jobRepository);
     }
 
     @Override
@@ -44,5 +47,12 @@ public class CustomItemWriter implements ItemWriter<UsageData>,ItemStream {
     public void close() throws ItemStreamException {
         System.out.println("Exceution Close ");
        // delegate.close();
+    }
+    public JobRepository getJobRepository() {
+        return jobRepository;
+    }
+
+    public void setJobRepository(JobRepository jobRepository) {
+        this.jobRepository = jobRepository;
     }
 }

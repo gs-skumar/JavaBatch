@@ -57,9 +57,9 @@
 
 	</bean>
 	<bean id ="CustomItemWriter" class="com.dc.batch.impl.CustomItemWriter">
-		<!--property name="delegate">
-			<bean class="org.springframework.batch.item.file.FlatFileItemWriter"></bean>
-		</property-->
+		<property name="jobRepository" ref="jobRepository">
+
+		</property>
 	</bean>
 
 
